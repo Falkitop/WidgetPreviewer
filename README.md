@@ -10,4 +10,5 @@ It automatically switches the widget by just selecting it in the Content-Browser
 # ToDo
 
 -Adding support for the previewbackground set in the class-defaults.
+
 -Saving the Project-Settings setting to ini file.
