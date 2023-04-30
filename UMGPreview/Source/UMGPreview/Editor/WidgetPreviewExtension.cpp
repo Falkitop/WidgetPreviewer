@@ -3,7 +3,7 @@
 #include "BlueprintEditorModule.h"
 #include "ContentBrowserDelegates.h"
 #include "ContentBrowserModule.h"
-#include "EditorUtilityLibrary.h"
+#include "EngineUtils.h"
 #include "ToolMenu.h"
 #include "ToolMenuSection.h"
 #include "WidgetBlueprint.h"
@@ -75,7 +75,7 @@ void FWidgetPreviewExtension::RemoveHook()
 void FWidgetPreviewExtension::ExecuteRun()
 {
 	const UUMGPreviewSettings* Settings = GetDefault<UUMGPreviewSettings>();
-	UEditorUtilityWidgetBlueprint* EditorWidget = Settings->DefaultEditorWidget.Get();
+	UEditorUtilityWidgetBlueprint* EditorWidget = LoadObject<UEditorUtilityWidgetBlueprint>(NULL,TEXT("/UMGPreview/UMGPreview.UMGPreview"), NULL); //Settings->DefaultEditorWidget.Get();
 	if (EditorWidget)
 	{
 		//UEditorUtilitySubsystem* EditorUtilitySubsystem = GEditor->GetEditorSubsystem<UEditorUtilitySubsystem>();

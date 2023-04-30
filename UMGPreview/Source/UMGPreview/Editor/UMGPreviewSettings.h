@@ -31,19 +31,13 @@ public:
 				SettingsSection->OnModified().BindLambda([]() -> bool
 				{
 					 GetMutableDefault<UUMGPreviewSettings>()->SaveConfig();
+					//SettingsSection->SaveDefaults();
 					return true;
 					//return UWidgetPreviewSettings::HandleSettingsSaved();
 					//UEditorUtilitySubsystem* EditorUtilitySubsystem = GEditor->GetEditorSubsystem<UEditorUtilitySubsystem>();
 				});
 			}
 		}
-	}
-	
-	bool HandleSettingsSaved()
-	{
-		SaveConfig();
-		return true;
-		//FUMGPreviewModule::DefaultWidget = 
 	}
 	
 	/** GameMode to use if not specified in any other way. (e.g. per-map DefaultGameMode or on the URL). */

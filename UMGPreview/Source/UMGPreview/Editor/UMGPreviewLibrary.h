@@ -1,8 +1,9 @@
 ﻿#pragma once
+#include "UMGPreviewSettings.h"
 #include "Blueprint/UserWidget.h"
 #include "UMGPreviewLibrary.generated.h"
 
-UCLASS()
+UCLASS(Blueprintable)
 class UMGPREVIEW_API UUMGPreviewLibrary : public UBlueprintFunctionLibrary
 {
 	GENERATED_BODY()
@@ -11,6 +12,13 @@ class UMGPREVIEW_API UUMGPreviewLibrary : public UBlueprintFunctionLibrary
 	{
 		//return (Widget->PreviewBackground == nullptr) ? nullptr : Widget->PreviewBackground;
 		return nullptr;
+	}
+	
+	UFUNCTION(BlueprintCallable)
+	static bool IsDefaultEditorWidgetValid()
+	{
+		
+		return GetDefault<UUMGPreviewSettings>()->DefaultEditorWidget.Get() != nullptr;;
 	}
 	
 };
